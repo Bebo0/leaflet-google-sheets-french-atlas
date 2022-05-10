@@ -126,11 +126,10 @@ $(window).on('load', function() {
           point['Icon Color']
         );
 
-      var markerTable = '<table class="table"><tbody><tr><th>Age</th><td>30</td></tr><tr><th>Genre</th><td>F</td></tr><tr><th>A grandi a</th><td>Montreal</td></tr><tr><th>Habite ici depuis</th><td>6 ans</td></tr></tbody></table>'
+      var markerTable = '<table class="table"><tbody><tr><th>Age</th><td>' + point['age'] + '</td></tr><tr><th>Genre</th><td>' + point['gender'] + '</td></tr><tr><th>A grandi a</th><td>' + point['Location'] + '</td></tr><tr><th>Habite ici depuis</th><td>' + point['years_in_current_location'] + 'ans</td></tr></tbody></table>'
 
       var markerAudio = '<audio controls>  <source src="https://elasticbeanstalk-us-west-2-740250145989.s3.us-west-2.amazonaws.com/test_audio.mp3"> Your browser does not support the audio element. </audio>';
 
-      var _marker = markerAudio + markerTable
 
       if (point.Latitude !== '' && point.Longitude !== '') {
         // var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
@@ -139,7 +138,7 @@ $(window).on('load', function() {
         //   point['Description']);
 
         let marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
-            .bindPopup(markerTable + markerAudio)
+            .bindPopup(markerAudio + markerTable)
 
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Group]);
