@@ -942,8 +942,7 @@ $(window).on('load', function() {
         [83, -141] // northeast
     ]
     L.tileLayer.provider(basemap, {
-      maxZoom: 18,
-      bounds: canada
+      maxZoom: 18
     }).addTo(map);
     L.control.attribution({
       position: trySetting('_mapAttribution', 'bottomright')
