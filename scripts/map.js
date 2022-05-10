@@ -630,21 +630,21 @@ $(window).on('load', function() {
     }
 
     centerAndZoomMap(group);
-    //
-    // // Add polylines
-    // if (polylines && polylines.length > 0) {
-    //   processPolylines(polylines);
-    // } else {
-    //   completePolylines = true;
-    // }
-    //
-    // // Add polygons
-    // if (getPolygonSetting(0, '_polygonsGeojsonURL')
-    //   && getPolygonSetting(0, '_polygonsGeojsonURL').trim()) {
-    //   loadAllGeojsons(0);
-    // } else {
-    //   completePolygons = true;
-    // }
+
+    // Add polylines
+    if (polylines && polylines.length > 0) {
+      processPolylines(polylines);
+    } else {
+      completePolylines = true;
+    }
+
+    // Add polygons
+    if (getPolygonSetting(0, '_polygonsGeojsonURL')
+      && getPolygonSetting(0, '_polygonsGeojsonURL').trim()) {
+      loadAllGeojsons(0);
+    } else {
+      completePolygons = true;
+    }
 
     // Add Nominatim Search control
     if (getSetting('_mapSearch') !== 'off') {
@@ -1018,37 +1018,37 @@ $(window).on('load', function() {
               // First, read 3 sheets: Options, Points, and Polylines
               $.when(
                 $.getJSON(apiUrl + spreadsheetId + '/values/Options?key=' + googleApiKey),
-                $.getJSON(apiUrl + spreadsheetId + '/values/Points?key=' + googleApiKey)
-                // $.getJSON(apiUrl + spreadsheetId + '/values/Polylines?key=' + googleApiKey)
-              ).done(function(options, points) {
+                $.getJSON(apiUrl + spreadsheetId + '/values/Points?key=' + googleApiKey),
+                $.getJSON(apiUrl + spreadsheetId + '/values/Polylines?key=' + googleApiKey)
+              ).done(function(options, points, polylines) {
 
                 // Which sheet names contain polygon data?
-                // var polygonSheets = sheets.filter(function(name) { return name.indexOf('Polygons') === 0})
+                var polygonSheets = sheets.filter(function(name) { return name.indexOf('Polygons') === 0})
 
                 // Define a recursive function to fetch data from a polygon sheet
-                // var fetchPolygonsSheet = function(polygonSheets) {
-                //
-                //   // Load map once all polygon sheets have been loaded (if any)
-                //   if (polygonSheets.length === 0) {
-                //     onMapDataLoad(
-                //       parse(options),
-                //       parse(points)
-                //       // parse(polylines)
-                //     )
-                //   } else {
-                //
-                //     // Fetch another polygons sheet
-                //     // $.getJSON(apiUrl + spreadsheetId + '/values/' + polygonSheets.shift() + '?key=' + googleApiKey, function(data) {
-                //     //   createPolygonSettings( parse([data]) )
-                //     //   fetchPolygonsSheet(polygonSheets)
-                //     // })
-                //
-                //   }
-                //
-                // }
+                var fetchPolygonsSheet = function(polygonSheets) {
+
+                  // Load map once all polygon sheets have been loaded (if any)
+                  if (polygonSheets.length === 0) {
+                    onMapDataLoad(
+                      parse(options),
+                      parse(points),
+                      parse(polylines)
+                    )
+                  } else {
+
+                    // Fetch another polygons sheet
+                    $.getJSON(apiUrl + spreadsheetId + '/values/' + polygonSheets.shift() + '?key=' + googleApiKey, function(data) {
+                      createPolygonSettings( parse([data]) )
+                      fetchPolygonsSheet(polygonSheets)
+                    })
+
+                  }
+
+                }
 
                 // Start recursive function
-                // fetchPolygonsSheet( polygonSheets )
+                fetchPolygonsSheet( polygonSheets )
 
               })
               
