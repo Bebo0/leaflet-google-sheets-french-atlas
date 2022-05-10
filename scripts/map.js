@@ -128,7 +128,7 @@ $(window).on('load', function() {
 
       var markerTable = '<table class="table"><tbody><tr><th>Age</th><td>30</td></tr><tr><th>Genre</th><td>F</td></tr><tr><th>A grandi a</th><td>Montreal</td></tr><tr><th>Habite ici depuis</th><td>6 ans</td></tr></tbody></table>'
 
-      var markerAudio = 'audio controls>  <source src="https://elasticbeanstalk-us-west-2-740250145989.s3.us-west-2.amazonaws.com/test_audio.mp3"> Your browser does not support the audio element. </audio>';
+      var markerAudio = '<audio controls>  <source src="https://elasticbeanstalk-us-west-2-740250145989.s3.us-west-2.amazonaws.com/test_audio.mp3"> Your browser does not support the audio element. </audio>';
 
       var _marker = markerTable + markerAudio
 
