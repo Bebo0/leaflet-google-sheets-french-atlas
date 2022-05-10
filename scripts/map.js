@@ -130,7 +130,7 @@ $(window).on('load', function() {
 
       var markerAudio = '<audio controls>  <source src="https://elasticbeanstalk-us-west-2-740250145989.s3.us-west-2.amazonaws.com/test_audio.mp3"> Your browser does not support the audio element. </audio>';
 
-      var _marker = markerTable + markerAudio
+      var _marker = markerAudio + markerTable
 
       if (point.Latitude !== '' && point.Longitude !== '') {
         // var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
