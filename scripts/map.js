@@ -175,6 +175,7 @@ $(window).on('load', function() {
         ? 'topleft'
         : getSetting('_pointsLegendPos');
 
+      // TODO: probably don't need a legend. Also find layers and remove it
       var pointsLegend = L.control.layers(null, layers, {
         collapsed: false,
         position: pos,
@@ -630,20 +631,20 @@ $(window).on('load', function() {
 
     centerAndZoomMap(group);
 
-    // Add polylines
-    if (polylines && polylines.length > 0) {
-      processPolylines(polylines);
-    } else {
-      completePolylines = true;
-    }
-
-    // Add polygons
-    if (getPolygonSetting(0, '_polygonsGeojsonURL')
-      && getPolygonSetting(0, '_polygonsGeojsonURL').trim()) {
-      loadAllGeojsons(0);
-    } else {
-      completePolygons = true;
-    }
+    // // Add polylines
+    // if (polylines && polylines.length > 0) {
+    //   processPolylines(polylines);
+    // } else {
+    //   completePolylines = true;
+    // }
+    //
+    // // Add polygons
+    // if (getPolygonSetting(0, '_polygonsGeojsonURL')
+    //   && getPolygonSetting(0, '_polygonsGeojsonURL').trim()) {
+    //   loadAllGeojsons(0);
+    // } else {
+    //   completePolygons = true;
+    // }
 
     // Add Nominatim Search control
     if (getSetting('_mapSearch') !== 'off') {
