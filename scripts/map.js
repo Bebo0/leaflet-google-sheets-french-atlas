@@ -69,6 +69,7 @@ $(window).on('load', function() {
     var groups = [];
     var layers = {};
 
+    // TODO: we're not gonna use groups and this code is not efficient at all. Remove
     for (var i in points) {
       var group = points[i].Group;
       if (group && groups.indexOf(group) === -1) {
@@ -125,11 +126,20 @@ $(window).on('load', function() {
           point['Icon Color']
         );
 
+      var markerTable = '<table class="table"><tbody><tr><th>Age</th><td>30</td></tr><tr><th>Genre</th><td>F</td></tr><tr><th>A grandi a</th><td>Montreal</td></tr><tr><th>Habite ici depuis</th><td>6 ans</td></tr></tbody></table>'
+
+      var markerAudio = 'audio controls>  <source src="https://elasticbeanstalk-us-west-2-740250145989.s3.us-west-2.amazonaws.com/test_audio.mp3"> Your browser does not support the audio element. </audio>';
+
+      var _marker = markerTable + markerAudio
+
       if (point.Latitude !== '' && point.Longitude !== '') {
-        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
-          .bindPopup("<b>" + point['Name'] + '</b><br>' +
-          (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
-          point['Description']);
+        // var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
+        //   .bindPopup("<b>" + point['Name'] + '</b><br>' +
+        //   (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
+        //   point['Description']);
+
+        let marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
+            .bindPopup(markerTable + markerAudio)
 
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Group]);
@@ -140,7 +150,7 @@ $(window).on('load', function() {
     }
 
     var group = L.featureGroup(markerArray);
-    var clusters = (getSetting('_markercluster') === 'on') ? true : false;
+    var clusters = (getSetting('_markercluster') === 'on');
 
     // if layers.length === 0, add points to map instead of layer
     if (layers === undefined || layers.length === 0) {
@@ -161,7 +171,7 @@ $(window).on('load', function() {
         }
       }
 
-      var pos = (getSetting('_pointsLegendPos') == 'off')
+      var pos = (getSetting('_pointsLegendPos') === 'off')
         ? 'topleft'
         : getSetting('_pointsLegendPos');
 
@@ -178,12 +188,12 @@ $(window).on('load', function() {
     }
 
     $('#points-legend').prepend('<h6 class="pointer">' + getSetting('_pointsLegendTitle') + '</h6>');
-    if (getSetting('_pointsLegendIcon') != '') {
+    if (getSetting('_pointsLegendIcon') !== '') {
       $('#points-legend h6').prepend('<span class="legend-icon"><i class="fas '
         + getSetting('_pointsLegendIcon') + '"></i></span>');
     }
 
-    var displayTable = getSetting('_displayTable') == 'on' ? true : false;
+    var displayTable = getSetting('_displayTable') === 'on';
 
     // Display table with active points if specified
     var columns = getSetting('_tableColumns').split(',')
@@ -197,7 +207,7 @@ $(window).on('load', function() {
 
       // Set background (and text) color of the table header
       var colors = getSetting('_tableHeaderColor').split(',');
-      if (colors[0] != '') {
+      if (colors[0] !== '') {
         $('table.display').css('background-color', colors[0]);
         if (colors.length >= 2) {
           $('table.display').css('color', colors[1]);
