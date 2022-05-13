@@ -689,7 +689,9 @@ $(window).on('load', function() {
       togglePolygonLabels();
     });
 
+    // TODO: title
     addTitle();
+
 
     // Change Map attribution to include author's info + urls
     changeAttribution();
@@ -917,7 +919,7 @@ $(window).on('load', function() {
     var url = getSetting('_authorURL');
 
     if (name && url) {
-      if (url.indexOf('@') > 0) { url = 'mailto:' + url; }
+      // if (url.indexOf('@') > 0) { url = 'mailto:' + url; }
       credit += ' by <a href="' + url + '">' + name + '</a> | ';
     } else if (name) {
       credit += ' by ' + name + ' | ';
@@ -925,9 +927,9 @@ $(window).on('load', function() {
       credit += ' | ';
     }
 
-    credit += 'View <a href="' + getSetting('_githubRepo') + '">code</a>';
-    if (getSetting('_codeCredit')) credit += ' by ' + getSetting('_codeCredit');
-    credit += ' with ';
+    // credit += 'View <a href="' + getSetting('_githubRepo') + '">code</a>';
+    // if (getSetting('_codeCredit')) credit += ' by ' + getSetting('_codeCredit');
+    // credit += ' with ';
     $('.leaflet-control-attribution')[0].innerHTML = credit + attributionHTML;
   }
 
