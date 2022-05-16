@@ -126,7 +126,7 @@ $(window).on('load', function() {
           point['Icon Color']
         );
 
-      var markerTable = '<table class="center"><tbody><tr><th>Age</th><td>' + point['age'] + '</td></tr><tr><th>Genre</th><td>' + point['gender'] + '</td></tr><tr><th>A grandi a</th><td>' + point['Location'] + '</td></tr><tr><th>Habite ici depuis</th><td>' + point['years_in_current_location'] + ' ans</td></tr></tbody></table>'
+      var markerTable = '<table class="center"><tbody><tr><th>&Acirc;ge</th><td>' + point['age'] + '</td></tr><tr><th>Genre</th><td>' + point['gender'] + '</td></tr><tr><th>A grandi &agrave;</th><td>' + point['Location'] + '</td></tr><tr><th>Habite ici depuis</th><td>' + point['years_in_current_location'] + ' ans</td></tr></tbody></table>'
 
       var markerAudio = '<audio controls>  <source src="' + point['recording_url'] + '"> Your browser does not support the audio element. </audio>';
 
