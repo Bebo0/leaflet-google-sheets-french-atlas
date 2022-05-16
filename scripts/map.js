@@ -136,8 +136,11 @@ $(window).on('load', function() {
         //   .bindPopup("<b>" + point['Name'] + '</b><br>' +
         //   (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
         //   point['Description']);
+        var numRand = Math.floor(Math. random() * 11) * (Math.round(Math.random()) ? 1 : -1);
+        let lat = parseFloat(point.Latitude) + numRand*0.005;
+        let lon = parseFloat(point.Longitude) + numRand*0.005;
 
-        let marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
+        let marker = L.marker([lat.toString(), lon.toString()], {icon: icon})
             .bindPopup(markerAudio + markerTable)
 
         if (layers !== undefined && layers.length !== 1) {

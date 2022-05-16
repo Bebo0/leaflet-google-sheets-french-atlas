@@ -101,7 +101,7 @@
         <h1 class="leaflet-sidebar-header">
           À PROPOS DE CET ATLAS
           <span class="leaflet-sidebar-close"
-          ><i class="fa fa-caret-right"></i
+          ><i class="fa fa-caret-left"></i
           ></span>
         </h1>
 
@@ -122,7 +122,7 @@
       <div class="leaflet-sidebar-pane" id="profile">
         <h1 class="leaflet-sidebar-header">
           ACTIVITÉS PÉDAGOGIQUES<span class="leaflet-sidebar-close"
-        ><i class="fa fa-caret-right"></i
+        ><i class="fa fa-caret-left"></i
         ></span>
         </h1>
         <p>Coming soon!</p>
@@ -131,7 +131,7 @@
       <div class="leaflet-sidebar-pane" id="messages">
         <h1 class="leaflet-sidebar-header">
           PARTICIPEZ!<span class="leaflet-sidebar-close"
-        ><i class="fa fa-caret-right"></i
+        ><i class="fa fa-caret-left"></i
         ></span>
         </h1>
         <p>Votre accent nous intéresse!</p>
@@ -145,6 +145,7 @@
         <p>N’hésitez pas à nous écrire si vous avez des questions. Vous pouvez nous contacter à l’adresse courriel suivante : me.bouchard@ubc.ca</p>
 
         <p>Votre participation est importante à la réalisation de ce projet. Merci!</p>
+
       </div>
 
       <div class="leaflet-sidebar-pane" id="settings">
@@ -167,7 +168,7 @@
       tap: false
     }).setView([41.76,-72.69], 11); // default center is overridden by Google Sheet options and points
     var sidebar = L.control
-            .sidebar({ closeButton: true, container: "sidebar", position: "right", autopan: false })
+            .sidebar({ closeButton: true, container: "sidebar", position: "left", autopan: false })
             .addTo(map);
             // .open("home");
     // var sidebar = L.control
