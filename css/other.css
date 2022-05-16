@@ -1,0 +1,28 @@
+.center {
+    width:100%;
+    margin-left:5%;
+    margin-right:5%;
+    font-size: 13px;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Arial, serif;
+
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*border: 1px solid black;*/
+}
+
+.center td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.center th {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    text-align: inherit;
+    display: table-cell;
+    /*vertical-align: inherit;*/
+    font-weight: bold;
+}
