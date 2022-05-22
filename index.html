@@ -78,13 +78,13 @@
     <div class="leaflet-sidebar-tabs">
       <ul role="tablist">
         <li>
-          <a href="#home" role="tab"><i class="fas fa-info"></i></a>
+          <a href="#info" role="tab"><i class="fas fa-info"></i></a>
         </li>
         <li>
-          <a href="#profile" role="tab"><i class="fa fa-book"></i></a>
+          <a href="#activities" role="tab"><i class="fa fa-book"></i></a>
         </li>
         <li>
-          <a href="#messages" role="tab"><i class="fas fa-users"></i></a>
+          <a href="#participate" role="tab"><i class="fas fa-users"></i></a>
         </li>
       </ul>
 
@@ -97,7 +97,7 @@
 
     <!-- Tab panes -->
     <div class="leaflet-sidebar-content">
-      <div class="leaflet-sidebar-pane" id="home">
+      <div class="leaflet-sidebar-pane" id="info">
         <h1 class="leaflet-sidebar-header">
           À PROPOS DE CET ATLAS
           <span class="leaflet-sidebar-close"
@@ -106,7 +106,7 @@
         </h1>
         <p>Ce projet vise à valoriser les différents accents de la francophonie canadienne et à les situer géographiquement. Vous pouvez voyager avec votre curseur d’un coin à l’autre du pays en écoutant les différents accents.</p>
 
-        <p>Un de nos objectifs est aussi d’offrir un outil pédagogique pour les enseignant.e.s et les élèves intéressé.e.s par le français, la diversité et la variation linguistique.</p>
+        <p>Un de nos objectifs est aussi d’offrir un outil pédagogique pour les enseignant·e·s et les élèves intéressé·e·s par le français, la diversité et la variation linguistique.</p>
 
         <p>Ce projet est une co-création de Prof. Marie-Eve Bouchard et Dre Amanda Cardoso de l’Université de la Colombie-Britannique. Il a été financé par Language Science Institute et Open Educational Resources Fund de l’Université de la Colombie-Britannique.</p>
 
@@ -120,7 +120,7 @@
 
       </div>
 
-      <div class="leaflet-sidebar-pane" id="profile">
+      <div class="leaflet-sidebar-pane" id="activities">
         <h1 class="leaflet-sidebar-header">
           ACTIVITÉS PÉDAGOGIQUES<span class="leaflet-sidebar-close"
         ><i class="fa fa-caret-left"></i
@@ -134,11 +134,11 @@
         <div id="toc_container">
           <p class="toc_title">Contenu</p>
           <ul class="toc_list">
-            <li><a href="#one">1 Pour les petits (&Eacute;cole Primaire)</a>
+            <li><a href="#one">1 Pour les petits (&eacute;cole primaire)</a>
             </li>
-            <li><a href="#two">2 Pour les plus grands (&Eacute;cole Secondaire)</a></li>
-            <li><a href="#three">3 Pour les plus curieux (Niveau Coll&eacute;gial et Universitaire)</a></li>
-            <li><a href="#four">4 Pour les apprenants du Fran&ccedil;ais</a></li>
+            <li><a href="#two">2 Pour les plus grands (&eacute;cole secondaire)</a></li>
+            <li><a href="#three">3 Pour les plus curieux (niveau Coll&eacute;gial et universitaire)</a></li>
+            <li><a href="#four">4 Pour les apprenants du fran&ccedil;ais</a></li>
             <li><a href="#five">5 Pour tout le monde</a></li>
 
 
@@ -231,7 +231,7 @@
         <p style='margin:0cm;font-size:13px;font-family:"Helvetica",sans-serif;'><span style='font-family:"Helvetica Neue",sans-serif;'>&nbsp;</span></p>
       </div>
 
-      <div class="leaflet-sidebar-pane" id="messages">
+      <div class="leaflet-sidebar-pane" id="participate">
         <h1 class="leaflet-sidebar-header">
           PARTICIPEZ!<span class="leaflet-sidebar-close"
         ><i class="fa fa-caret-left"></i
@@ -251,13 +251,13 @@
 
       </div>
 
-      <div class="leaflet-sidebar-pane" id="settings">
-        <h1 class="leaflet-sidebar-header">
-          Settings<span class="leaflet-sidebar-close"
-        ><i class="fa fa-caret-right"></i
-        ></span>
-        </h1>
-      </div>
+<!--      <div class="leaflet-sidebar-pane" id="settings">-->
+<!--        <h1 class="leaflet-sidebar-header">-->
+<!--          Settings<span class="leaflet-sidebar-close"-->
+<!--        ><i class="fa fa-caret-right"></i-->
+<!--        ></span>-->
+<!--        </h1>-->
+<!--      </div>-->
     </div>
   </div>
   <div id="map"></div>
@@ -272,7 +272,8 @@
     }).setView([41.76,-72.69], 11); // default center is overridden by Google Sheet options and points
     var sidebar = L.control
             .sidebar({ closeButton: true, container: "sidebar", position: "left", autopan: false })
-            .addTo(map);
+            .addTo(map)
+            .open("info");
             // .open("home");
     // var sidebar = L.control
     //         .sidebar({ closeButton: true, container: "sidebar", position: "right", autopan: false })
