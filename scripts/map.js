@@ -125,8 +125,26 @@ $(window).on('load', function() {
           point['Marker Color'].toLowerCase(),
           point['Icon Color']
         );
+      let age = point['age'];
+      let gender = point['gender'];
+      let years_in_location = point['years_in_current_location'];
+      let location = point['Location'];
 
-      var markerTable = '<table class="center"><tbody><tr><th>&Acirc;ge</th><td>' + point['age'] + '</td></tr><tr><th>Genre</th><td>' + point['gender'] + '</td></tr><tr><th>A grandi &agrave;</th><td>' + point['Location'] + '</td></tr><tr><th>Habite ici depuis</th><td>' + point['years_in_current_location'] + ' ans</td></tr></tbody></table>'
+      let ageRow = '<tr><th>&Acirc;ge</th><td>' + age + '</td></tr>'
+      let genderRow = '<tr><th>Genre</th><td>' + gender + '</td></tr>'
+      let locationRow = '<tr><th>A grandi &agrave;</th><td>' + location + '</td></tr>'
+      let yearsInLocRow = '<tr><th>Habite ici depuis</th><td>' + years_in_location
+      if (years_in_location === '1' || years_in_location === '< 1') {
+        yearsInLocRow += ' an';
+      }
+      else {
+        yearsInLocRow += ' ans';
+      }
+      yearsInLocRow += '</td></tr>';
+
+
+
+      var markerTable = '<table class="center">' + ageRow +  genderRow + locationRow + yearsInLocRow + '</tbody></table>';
 
       var markerAudio = '<audio controls>  <source src="' + point['recording_url'] + '"> Your browser does not support the audio element. </audio>';
 
@@ -136,12 +154,19 @@ $(window).on('load', function() {
         //   .bindPopup("<b>" + point['Name'] + '</b><br>' +
         //   (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
         //   point['Description']);
-        let NOISE = 0.00010
-        var numRandLat = Math.floor(Math. random() * 301) * (Math.round(Math.random()) ? 1 : -1);
+        let NOISE = 0.004
+        var numRandLat = Math.floor(Math. random() * 101) * (Math.round(Math.random()) ? 1 : -1);
         let lat = parseFloat(point.Latitude) + numRandLat*NOISE;
 
-        var numRandLon = Math.floor(Math. random() * 301) * (Math.round(Math.random()) ? 1 : -1);
+
+        var numRandLon = Math.floor(Math. random() * 101) * (Math.round(Math.random()) ? 1 : -1);
         let lon = parseFloat(point.Longitude) + numRandLon*NOISE;
+
+        const hiDensityLocations = new Set(['Vancouver, BC', 'Fredericton, NB'])
+        if (hiDensityLocations.has(location)) {
+          lat = parseFloat(point.Latitude);
+          lon = parseFloat(point.Longitude);
+        }
 
         let marker = L.marker([lat.toString(), lon.toString()], {icon: icon})
             .bindPopup(markerAudio + markerTable)
@@ -922,7 +947,7 @@ $(window).on('load', function() {
     var attributionHTML = $('.leaflet-control-attribution')[0].innerHTML;
 
 
-    var credit = 'View <a href="' + googleDocURL + '" target="_blank">data</a>';
+    var credit = '| View <a href="' + googleDocURL + '" target="_blank">data</a>';
     var name = getSetting('_authorName');
     var url = getSetting('_authorURL');
 
