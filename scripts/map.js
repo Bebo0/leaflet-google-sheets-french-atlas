@@ -129,10 +129,12 @@ $(window).on('load', function() {
       let gender = point['gender'];
       let years_in_location = point['years_in_current_location'];
       let location = point['Location'];
+      let location_grandi = point['Location_grandi'];
 
       let ageRow = '<tr><th>&Acirc;ge</th><td>' + age + '</td></tr>'
       let genderRow = '<tr><th>Genre</th><td>' + gender + '</td></tr>'
-      let locationRow = '<tr><th>A grandi &agrave;</th><td>' + location + '</td></tr>'
+      let locationGrandiRow = '<tr><th>A grandi &agrave;</th><td>' + location_grandi + '</td></tr>'
+      let locationRow = '<tr><th>Habite à;</th><td>' + location + '</td></tr>'
       let yearsInLocRow = '<tr><th>Habite ici depuis</th><td>' + years_in_location
       if (years_in_location === '1' || years_in_location === '< 1') {
         yearsInLocRow += ' an';
@@ -144,7 +146,7 @@ $(window).on('load', function() {
 
 
 
-      var markerTable = '<table class="center">' + ageRow +  genderRow + locationRow + yearsInLocRow + '</tbody></table>';
+      var markerTable = '<table class="center">' + ageRow +  genderRow + locationGrandiRow + locationRow + yearsInLocRow + '</tbody></table>';
 
       var markerAudio = '<audio controls>  <source src="' + point['recording_url'] + '"> Your browser does not support the audio element. </audio>';
 
