@@ -134,7 +134,7 @@ $(window).on('load', function() {
       let ageRow = '<tr><th>&Acirc;ge</th><td>' + age + '</td></tr>'
       let genderRow = '<tr><th>Genre</th><td>' + gender + '</td></tr>'
       let locationGrandiRow = '<tr><th>A grandi &agrave;</th><td>' + location_grandi + '</td></tr>'
-      let locationRow = '<tr><th>Habite à;</th><td>' + location + '</td></tr>'
+      let locationRow = '<tr><th>Habite à</th><td>' + location + '</td></tr>'
       let yearsInLocRow = '<tr><th>Habite ici depuis</th><td>' + years_in_location
       if (years_in_location === '1' || years_in_location === '< 1') {
         yearsInLocRow += ' an';
