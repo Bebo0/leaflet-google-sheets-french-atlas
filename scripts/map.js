@@ -146,7 +146,7 @@ $(window).on('load', function() {
 
 
 
-      var markerTable = '<table class="center">' + ageRow +  genderRow + locationRow + yearsInLocRow + locationGrandiRow + '</tbody></table>';
+      var markerTable = '<table class="center">' + ageRow +  genderRow + locationGrandiRow + locationRow + yearsInLocRow + '</tbody></table>';
 
       var markerAudio = '<audio controls>  <source src="' + point['recording_url'] + '"> Your browser does not support the audio element. </audio>';
 
