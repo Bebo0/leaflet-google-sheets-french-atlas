@@ -156,19 +156,19 @@ $(window).on('load', function() {
         //   .bindPopup("<b>" + point['Name'] + '</b><br>' +
         //   (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
         //   point['Description']);
-        let NOISE = 0.004
-        var numRandLat = Math.floor(Math. random() * 101) * (Math.round(Math.random()) ? 1 : -1);
-        let lat = parseFloat(point.Latitude) + numRandLat*NOISE;
+        // let NOISE = 0.004
+        // var numRandLat = Math.floor(Math. random() * 101) * (Math.round(Math.random()) ? 1 : -1);
+        let lat = parseFloat(point.Latitude) //+ numRandLat*NOISE;
 
 
-        var numRandLon = Math.floor(Math. random() * 101) * (Math.round(Math.random()) ? 1 : -1);
-        let lon = parseFloat(point.Longitude) + numRandLon*NOISE;
+        // var numRandLon = Math.floor(Math. random() * 101) * (Math.round(Math.random()) ? 1 : -1);
+        let lon = parseFloat(point.Longitude) //+ numRandLon*NOISE;
 
-        const hiDensityLocations = new Set(['Vancouver, BC', 'Fredericton, NB'])
-        if (hiDensityLocations.has(location)) {
-          lat = parseFloat(point.Latitude);
-          lon = parseFloat(point.Longitude);
-        }
+        // const hiDensityLocations = new Set(['Vancouver, BC', 'Fredericton, NB'])
+        // if (hiDensityLocations.has(location)) {
+        //   lat = parseFloat(point.Latitude);
+        //   lon = parseFloat(point.Longitude);
+        // }
 
         let marker = L.marker([lat.toString(), lon.toString()], {icon: icon})
             .bindPopup(markerAudio + markerTable)
