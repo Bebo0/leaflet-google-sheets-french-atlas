@@ -725,6 +725,8 @@ $(window).on('load', function() {
     // TODO: title
     addTitle();
 
+    addParticipationDiv();
+
 
     // Change Map attribution to include author's info + urls
     changeAttribution();
@@ -821,6 +823,10 @@ $(window).on('load', function() {
 
       $('.map-title h3').click(function() { location.reload(); });
     }
+  }
+
+  function addParticipationDiv() {
+    $('div.leaflet-right.leaflet-bottom').prepend('<div class="leaflet-bar leaflet-control leaflet-control-custom"><h2 style="margin-top: 0px; margin-bottom: 0px;">Si vous voulez participer à cette étude, veuillez cliquer <a href="https://frenchdrawl.linguistics.ubc.ca/welcome/fr" style="all: revert;">ici</a>.</h2></div>')
   }
 
 
