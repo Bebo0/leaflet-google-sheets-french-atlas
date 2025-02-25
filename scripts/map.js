@@ -825,10 +825,15 @@ $(window).on('load', function() {
     }
   }
 
-  function addParticipationDiv() {
-    $('div.leaflet-right.leaflet-bottom').prepend('<div class="leaflet-bar leaflet-control leaflet-control-custom"><h2 style="margin-top: 0px; margin-bottom: 0px;">Si vous voulez participer à cette étude, veuillez cliquer <a href="https://frenchdrawl.linguistics.ubc.ca/welcome/fr" style="all: revert;">ici</a>.</h2></div>')
+  function hideParent(obj) {
+    obj.parentElement.style.display = "none";
   }
 
+  function addParticipationDiv() {
+    var text = '<h3>Cliquez <a href="https://frenchdrawl.linguistics.ubc.ca/welcome/fr">ici</a> pour participer à cette étude.</h3>'
+    var closeButton = '<button class="close-button" onClick="this.parentElement.style.display=\'none\'">&times;</button>'
+    $('div.leaflet-right.leaflet-bottom').prepend('<div class="leaflet-control leaflet-banner">' + text + closeButton + '</div>')
+  }
 
   /**
    * Adds polylines to the map
